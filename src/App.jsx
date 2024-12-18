@@ -27,6 +27,7 @@ const App = () => {
   ];
 
   return (
+
     <div className="bg-gray-100 min-h-screen">
       <header className="text-center p-5 bg-blue-600 text-white text-3xl font-bold">
         Restaurants
@@ -43,5 +44,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
