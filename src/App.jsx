@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import RestaurantCard from "./components/Cards";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // Sample restaurant data
+  const restaurants = [
+    {
+      id: 1,
+      name: "Pasta Palace",
+      location: "New York, NY",
+    },
+    {
+      id: 2,
+      name: "Taco Town",
+      location: "Los Angeles, CA",
+    },
+    {
+      id: 3,
+      name: "Burger Barn",
+      location: "Austin, TX",
+    },
+    {
+      id: 4,
+      name: "Sushi Stop",
+      location: "San Francisco, CA",
+    },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="bg-gray-100 min-h-screen">
+      <header className="text-center p-5 bg-blue-600 text-white text-3xl font-bold">
+        Restaurants
+      </header>
+      <main className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {restaurants.map((restaurant) => (
+          <RestaurantCard
+            key={restaurant.id}
+            name={restaurant.name}
+            location={restaurant.location}
+          />
+        ))}
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
